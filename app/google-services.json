@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1002110420666",
+    "project_id": "d77---livescore-news",
+    "storage_bucket": "d77---livescore-news.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002110420666:android:0902b91c403c250e21e483",
+        "android_client_info": {
+          "package_name": "com.football.news.livescore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8s-Adn_fH_3KUwLrjOd89h05TJIk9UnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

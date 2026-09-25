@@ -1,0 +1,67 @@
+package com.football.news.livescore.ui.profile
+
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
+import com.football.news.livescore.BuildConfig
+import com.football.news.livescore.base.BaseActivity
+import com.football.news.livescore.databinding.ActivityProfileBinding
+import com.football.news.livescore.ui.language.LanguageActivity
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
+@AndroidEntryPoint
+class ProfileActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityProfileBinding
+
+    override fun bind() {
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
+        displayAppVersion()
+        setupListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateLanguageDisplay()
+    }
+
+    private fun displayAppVersion() {
+        binding.tvVersion.text = "v${BuildConfig.VERSION_NAME}"
+    }
+
+    private fun updateLanguageDisplay() {
+        val onboardingPrefs = getSharedPreferences("livescore_onboarding_prefs", Context.MODE_PRIVATE)
+        val selectedLanguage = onboardingPrefs.getString("selected_language", "English") ?: "English"
+        binding.tvLanguageValue.text = selectedLanguage
+    }
+
+    private fun setupListeners() {
+        updateLanguageDisplay()
+
+        binding.rowLanguage.setOnClickListener {
+            val intent = Intent(this, LanguageActivity::class.java).apply {
+                putExtra(LanguageActivity.EXTRA_FROM_PROFILE, true)
+            }
+            startActivity(intent)
+        }
+
+        binding.rowPrivacyPolicy.setOnClickListener {
+            try {
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("")
+                }
+                startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(this, "Unable to open link", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}

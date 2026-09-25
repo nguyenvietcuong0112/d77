@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string name="app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="inter_splash_high" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="inter_splash" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="inter_click" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="inter_click_prediction" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
+
+
+<!--    <string name="native_language" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_language_click" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_language_high" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_language_click_high" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_permission" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_splash_full_high" translatable="false"></string>-->
+<!--    <string name="native_banner_ob" translatable="false"></string>-->
+<!--    <string name="native_splash_full" translatable="false"></string>-->
+<!--    <string name="banner_splash" translatable="false">ca-app-pub-3940256099942544/6300978111</string>-->
+<!--    <string name="native_all" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+
+<!--    <string name="native_onboarding_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_onboarding_full_1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="native_onboarding_4" translatable="false">ca-app-pub-3940256099942544/2247696110</string>-->
+
+
+<!--    <string name="resume_open_app" translatable="false">ca-app-pub-3940256099942544/9257395921</string>-->
+
+
+
+<!--    <string name="facebook_app_id" translatable="false">1234</string>-->
+<!--    <string name="facebook_client_token" translatable="false">5678</string>-->
+
+
+    <string name="app_id" translatable="false">ca-app-pub-9900730300733887~7616526243</string>
+    <string name="inter_splash_high" translatable="false">ca-app-pub-9900730300733887/8600547265</string>
+    <string name="inter_splash" translatable="false">ca-app-pub-9900730300733887/8321345666</string>
+    <string name="inter_click" translatable="false">ca-app-pub-9900730300733887/9667974514</string>
+    <string name="inter_click_prediction" translatable="false">ca-app-pub-9900730300733887/3062203560</string>
+
+
+    <string name="native_language" translatable="false">ca-app-pub-9900730300733887/3293214415</string>
+    <string name="native_language_click" translatable="false">ca-app-pub-9900730300733887/6298651709</string>
+    <string name="native_language_high" translatable="false">ca-app-pub-9900730300733887/2172627879</string>
+    <string name="native_language_click_high" translatable="false">ca-app-pub-9900730300733887/3460735374</string>
+    <string name="native_permission" translatable="false">ca-app-pub-9900730300733887/5920301190</string>
+    <string name="native_splash_full_high" translatable="false"></string>
+    <string name="native_banner_ob" translatable="false"></string>
+    <string name="native_splash_full" translatable="false"></string>
+    <string name="banner_splash" translatable="false">ca-app-pub-9900730300733887/1947509000</string>
+    <string name="native_all" translatable="false">ca-app-pub-9900730300733887/1981056188</string>
+
+    <string name="native_onboarding_1" translatable="false">ca-app-pub-9900730300733887/2147653702</string>
+    <string name="native_onboarding_full_1" translatable="false">ca-app-pub-9900730300733887/9667051072</string>
+    <string name="native_onboarding_4" translatable="false">ca-app-pub-9900730300733887/9496584121</string>
+
+
+    <string name="resume_open_app" translatable="false">ca-app-pub-9900730300733887/4758428616</string>
+
+
+
+    <string name="facebook_app_id" translatable="false">1578353567311739</string>
+    <string name="facebook_client_token" translatable="false">bddb4776a490357fa0a39aed47c8f336</string>
+
+    <!-- Standard Native Ad View IDs for CSC Library & Layouts -->
+    <item type="id" name="native_ad_view" />
+    <item type="id" name="media_view" />
+    <item type="id" name="ad_media" />
+    <item type="id" name="ad_content_view" />
+    <item type="id" name="shimmer_view" />
+
+</resources>

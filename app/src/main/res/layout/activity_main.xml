@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    tools:context=".ui.main.MainActivity">
+
+    <!-- Top Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/background"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- App Logo Soccer Ball -->
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/icon_logo_soccer"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Home Tab Title: LIVE SCORE + Football • Faster • Closer -->
+            <LinearLayout
+                android:id="@+id/layoutHomeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@id/ivAppLogo"
+                app:layout_constraintStart_toEndOf="@id/ivAppLogo"
+                app:layout_constraintEnd_toStartOf="@id/btnGoVip"
+                app:layout_constraintTop_toTopOf="@id/ivAppLogo">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvLiveTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/home_header_live"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tvScoreTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:paddingEnd="16dp"
+                        android:text="@string/home_header_score"
+                        android:textColor="@color/primaryGreen"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvHomeSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:clipToPadding="false"
+                    android:paddingEnd="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/home_header_slogan"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Title for Other Tabs (League Center, News, Settings) -->
+            <TextView
+                android:id="@+id/logoText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:paddingEnd="6dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/leagues_header_title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="gone"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@id/ivAppLogo"
+                app:layout_constraintStart_toEndOf="@id/ivAppLogo"
+                app:layout_constraintEnd_toStartOf="@id/btnGoVip"
+                app:layout_constraintTop_toTopOf="@id/ivAppLogo" />
+
+            <!-- VIP Crown Badge -->
+            <ImageView
+                android:id="@+id/btnGoVip"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_premium"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSettings"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Settings Button -->
+            <ImageView
+                android:id="@+id/btnSettings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Settings"
+                android:src="@drawable/ic_settings"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Fragment container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="64dp"
+        android:background="@color/card_dark"
+        app:paddingBottomSystemWindowInsets="false"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemActiveIndicatorStyle="@null"
+        app:elevation="8dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toTopOf="@id/frAdsBanner"
+        app:menu="@menu/bottom_navigation" />
+
+
+    <FrameLayout
+        android:id="@+id/frAdsBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/ads_native_shimer_small" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frAdsCollap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+    </FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
