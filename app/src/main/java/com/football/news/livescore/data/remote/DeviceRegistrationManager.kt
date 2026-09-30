@@ -100,6 +100,7 @@ class DeviceRegistrationManager @Inject constructor(
         }
 
         val request = RegisterDeviceRequest(
+            package_name = context.packageName,
             device_id = deviceId,
             push_token = token,
             os_type = "android",

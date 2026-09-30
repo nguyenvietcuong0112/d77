@@ -26,7 +26,7 @@
         tools:ignore="UnusedAttribute,LockedOrientationActivity">
 
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name="com.cscmobi.libraryads.views.splash.CSCSplashActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -38,11 +38,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Prevent duplicate launcher activity from csc ads library -->
-        <activity
-            android:name="com.cscmobi.libraryads.views.splash.CSCSplashActivity"
-            tools:node="remove" />
-
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
@@ -50,13 +45,6 @@
             android:theme="@style/Theme.MyApplication"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity
-            android:name=".ui.language.LanguageActivity"
-            android:configChanges="locale|layoutDirection"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplication"
-            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false"
@@ -84,13 +72,6 @@
 
         <activity
             android:name=".utils.ActivityLoadNativeFullV2"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplication"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".ui.onboarding.IntroSlideshowActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplication"

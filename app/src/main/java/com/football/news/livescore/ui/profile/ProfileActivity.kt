@@ -7,7 +7,6 @@ import android.widget.Toast
 import com.football.news.livescore.BuildConfig
 import com.football.news.livescore.base.BaseActivity
 import com.football.news.livescore.databinding.ActivityProfileBinding
-import com.football.news.livescore.ui.language.LanguageActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -47,8 +46,8 @@ class ProfileActivity : BaseActivity() {
         updateLanguageDisplay()
 
         binding.rowLanguage.setOnClickListener {
-            val intent = Intent(this, LanguageActivity::class.java).apply {
-                putExtra(LanguageActivity.EXTRA_FROM_PROFILE, true)
+            val intent = Intent(this, com.cscmobi.libraryads.views.language.CSCLanguageActivity::class.java).apply {
+                putExtra(com.cscmobi.libraryads.commons.utils.Constants.FROM_SETTING, true)
             }
             startActivity(intent)
         }
@@ -56,7 +55,7 @@ class ProfileActivity : BaseActivity() {
         binding.rowPrivacyPolicy.setOnClickListener {
             try {
                 val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse("")
+                    data = Uri.parse("https://sites.google.com/view/one-vision-tech/home")
                 }
                 startActivity(intent)
             } catch (e: Exception) {

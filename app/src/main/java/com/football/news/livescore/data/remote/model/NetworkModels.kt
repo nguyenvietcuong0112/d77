@@ -228,6 +228,7 @@ data class LineupPlayerDto(
 // --- DEVICE REGISTRATION DTOs ---
 
 data class RegisterDeviceRequest(
+    val package_name: String,
     val device_id: String,
     val push_token: String?,
     val os_type: String = "android",
@@ -240,6 +241,7 @@ data class RegisterDeviceRequest(
 )
 
 data class RegisterDeviceResponse(
+    val package_name: String? = null,
     val device_id: String,
     val push_token: String?,
     val device_info: DeviceInfo?,
@@ -250,6 +252,7 @@ data class RegisterDeviceResponse(
 )
 
 data class DeviceInfo(
+    val package_name: String? = null,
     val os_type: String?,
     val os_version: String?,
     val app_version: String?,

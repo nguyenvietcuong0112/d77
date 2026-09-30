@@ -18,7 +18,12 @@ object LiveScoreHttpClient {
     fun createClient(packageName: String, versionCode: String): OkHttpClient {
         val headerInterceptor = Interceptor { chain ->
             val originalRequest = chain.request()
+            val newUrl = originalRequest.url.newBuilder()
+                .addQueryParameter("param1", packageName)
+                .addQueryParameter("param2", versionCode)
+                .build()
             val requestWithHeaders = originalRequest.newBuilder()
+                .url(newUrl)
                 .header("x-param1", packageName)
                 .header("x-param2", versionCode)
                 .build()

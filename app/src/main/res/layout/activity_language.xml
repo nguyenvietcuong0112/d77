@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/iv_back"
+                android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
@@ -50,7 +50,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_back"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <FrameLayout
@@ -66,17 +66,29 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/iv_select"
+                    android:id="@+id/btnDoneDisable"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:gravity="center"
                     android:padding="6dp"
-                    android:alpha="0.5"
+                    android:alpha="0.4"
                     android:src="@drawable/ic_next_language"
+                    android:visibility="visible"
+                    app:tint="@color/primaryBlue" />
+
+                <ImageView
+                    android:id="@+id/btnDone"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:alpha="1.0"
+                    android:src="@drawable/ic_next_language"
+                    android:visibility="gone"
                     app:tint="@color/primaryBlue" />
 
                 <androidx.core.widget.ContentLoadingProgressBar
-                    android:id="@+id/ic_loading"
+                    android:id="@+id/progressLoading"
                     style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -93,7 +105,7 @@
 
     <!-- Language Recycler View (scroll above the native ad) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/uiLanguage"
+        android:id="@+id/rcvLanguage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="16dp"
@@ -102,20 +114,19 @@
         android:layout_marginBottom="8dp"
         tools:listitem="@layout/item_language_selection"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/fr_ads"
+        app:layout_constraintBottom_toTopOf="@+id/layoutAds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <!-- Fixed Bottom Native Ad FrameLayout -->
     <FrameLayout
-        android:id="@+id/fr_ads"
+        android:id="@+id/layoutAds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <include layout="@layout/ads_shimmer_native_full" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

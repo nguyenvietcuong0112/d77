@@ -38,7 +38,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        app:layout_constraintBottom_toTopOf="@id/frAdsBanner">
+        app:layout_constraintBottom_toTopOf="@id/layoutAds">
 
         <TextView
             android:id="@+id/tvProgressPercent"
@@ -82,7 +82,7 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:id="@+id/frAdsBanner"
+        android:id="@+id/layoutAds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

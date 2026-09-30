@@ -54,10 +54,10 @@ class ProfileFragment : Fragment() {
         val selectedLanguage = onboardingPrefs.getString("selected_language", "English") ?: "English"
         binding.tvLanguageValue.text = selectedLanguage
 
-        // Language selection: Navigate to LanguageActivity instead of showing dialog popup
+        // Language selection: Navigate to CSCLanguageActivity instead of showing dialog popup
         binding.rowLanguage.setOnClickListener {
-            val intent = android.content.Intent(requireContext(), com.football.news.livescore.ui.language.LanguageActivity::class.java).apply {
-                putExtra(com.football.news.livescore.ui.language.LanguageActivity.EXTRA_FROM_PROFILE, true)
+            val intent = android.content.Intent(requireContext(), com.cscmobi.libraryads.views.language.CSCLanguageActivity::class.java).apply {
+                putExtra(com.cscmobi.libraryads.commons.utils.Constants.FROM_SETTING, true)
             }
             startActivity(intent)
         }

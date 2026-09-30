@@ -16,28 +16,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="56dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
-        <!-- Language Name Title -->
+        <ImageView
+            android:id="@+id/imgFlag"
+            android:layout_width="32dp"
+            android:layout_height="24dp"
+            android:scaleType="fitCenter" />
+
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/txtLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
             android:textColor="@color/text_white"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <!-- Selection Check Indicator -->
         <ImageView
             android:id="@+id/ivCheckIndicator"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:contentDescription="Selection Indicator"
-            android:src="@drawable/ic_check_circle_outline" />
+            android:src="@drawable/ic_check_circle_outline"
+            app:tint="@color/textSecondary" />
 
     </LinearLayout>
 

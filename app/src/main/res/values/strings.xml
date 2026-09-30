@@ -26,6 +26,14 @@
     
     <string name="profile_title">MY PROFILE</string>
     <string name="language">Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_vietnamese">Tiếng Việt</string>
+    <string name="lang_spanish">Español</string>
+    <string name="lang_french">Français</string>
+    <string name="lang_german">Deutsch</string>
+    <string name="lang_portuguese">Português</string>
+    <string name="lang_hindi">हिन्दी</string>
+    <string name="lang_indonesian">Bahasa Indonesia</string>
     <string name="premium_badge">👑 PREMIUM MEMBER</string>
     <string name="free_plan">FREE PLAN</string>
     <string name="daily_limit">Daily API Usage Limit</string>

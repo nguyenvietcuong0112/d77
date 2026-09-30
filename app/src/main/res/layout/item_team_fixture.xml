@@ -21,8 +21,10 @@
         <!-- Top League & Date Row -->
         <ImageView
             android:id="@+id/ivLeagueLogo"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:padding="2dp"
+            android:background="@drawable/bg_league_logo"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

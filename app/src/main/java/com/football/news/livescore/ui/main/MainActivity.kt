@@ -256,7 +256,8 @@ class MainActivity : BaseActivity() {
         com.football.news.livescore.utils.LivescoreTrackingSDKKotlin.ScreenTracker.trackScreenView(
             apiService = liveScoreApiService,
             deviceId = deviceId,
-            newScreen = "MainActivity"
+            newScreen = "MainActivity",
+            packageName = packageName
         )
 
         if (::limitManager.isInitialized) {

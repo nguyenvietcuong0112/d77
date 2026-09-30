@@ -10,8 +10,11 @@
 
     <ImageView
         android:id="@+id/ivLeagueLogo"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:padding="3dp"
+        android:background="@drawable/bg_league_logo"
+        android:scaleType="fitCenter"
         android:contentDescription="League Logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

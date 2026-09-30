@@ -19,10 +19,12 @@ object AdTrackingHelper {
     ) {
         val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "unknown_device"
         val sessionId = ScreenTracker.getSessionId()
+        val packageName = context.packageName
         trackingScope.launch {
             try {
                 apiService.logAdEvent(
                     AdEventRequest(
+                        package_name = packageName,
                         device_id = deviceId,
                         session_id = sessionId,
                         event_type = "request",
@@ -46,10 +48,12 @@ object AdTrackingHelper {
     ) {
         val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "unknown_device"
         val sessionId = ScreenTracker.getSessionId()
+        val packageName = context.packageName
         trackingScope.launch {
             try {
                 apiService.logAdEvent(
                     AdEventRequest(
+                        package_name = packageName,
                         device_id = deviceId,
                         session_id = sessionId,
                         event_type = "load_success",
@@ -74,10 +78,12 @@ object AdTrackingHelper {
     ) {
         val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "unknown_device"
         val sessionId = ScreenTracker.getSessionId()
+        val packageName = context.packageName
         trackingScope.launch {
             try {
                 apiService.logAdEvent(
                     AdEventRequest(
+                        package_name = packageName,
                         device_id = deviceId,
                         session_id = sessionId,
                         event_type = "load_failed",
@@ -103,11 +109,13 @@ object AdTrackingHelper {
     ) {
         val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "unknown_device"
         val sessionId = ScreenTracker.getSessionId()
+        val packageName = context.packageName
         val impressionIndex = AdSessionTracker.incrementAndGet(adType)
         trackingScope.launch {
             try {
                 apiService.logAdEvent(
                     AdEventRequest(
+                        package_name = packageName,
                         device_id = deviceId,
                         session_id = sessionId,
                         event_type = "show",

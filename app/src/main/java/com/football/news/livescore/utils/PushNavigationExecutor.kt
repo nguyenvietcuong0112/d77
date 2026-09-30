@@ -6,14 +6,13 @@ import com.football.news.livescore.ui.detail.MatchDetailActivity
 import com.football.news.livescore.ui.iap.IAPActivity
 import com.football.news.livescore.ui.main.MainActivity
 import com.football.news.livescore.ui.news.NewsDetailActivity
-import com.football.news.livescore.ui.splash.SplashActivity
 
 object PushNavigationExecutor {
 
     const val PROMO_VIP_SUBSCRIPTION = "vip_subscription"
 
     fun createSplashIntent(context: Context, payload: PushPayload): Intent {
-        return Intent(context, SplashActivity::class.java).apply {
+        return toDestinationIntent(context, payload.navigation).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             payload.rawData.forEach { (key, value) -> putExtra(key, value) }
         }

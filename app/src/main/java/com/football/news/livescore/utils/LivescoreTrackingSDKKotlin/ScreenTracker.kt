@@ -48,7 +48,7 @@ object ScreenTracker {
      * @param deviceId ID thiết bị duy nhất (Android ID hoặc UUID ngẫu nhiên được lưu trữ)
      * @param newScreen Tên màn hình mới vừa mở (ví dụ: "MatchDetail", "Home")
      */
-    fun trackScreenView(apiService: LiveScoreApiService, deviceId: String, newScreen: String) {
+    fun trackScreenView(apiService: LiveScoreApiService, deviceId: String, newScreen: String, packageName: String? = null) {
         val sessId = getSessionId()
         val prevScreen = currentScreen
         var durationSeconds = 0
@@ -66,6 +66,7 @@ object ScreenTracker {
             try {
                 apiService.logScreenView(
                     ScreenViewRequest(
+                        package_name = packageName,
                         device_id = deviceId,
                         session_id = sessId,
                         screen_name = newScreen,

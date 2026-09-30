@@ -25,6 +25,7 @@ interface LiveScoreApiService {
 }
 
 data class AdEventRequest(
+    val package_name: String? = null,
     val device_id: String,
     val session_id: String,
     val event_type: String, // request, load_success, load_failed, show
@@ -38,6 +39,7 @@ data class AdEventRequest(
 )
 
 data class ScreenViewRequest(
+    val package_name: String? = null,
     val device_id: String,
     val session_id: String,
     val screen_name: String,
