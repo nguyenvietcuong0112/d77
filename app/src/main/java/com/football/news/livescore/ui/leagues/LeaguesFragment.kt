@@ -22,8 +22,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.football.news.livescore.utils.NativeCallback
 import com.football.news.livescore.utils.Admob
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.data.remote.RemoteConfigManager
 import com.football.news.livescore.ui.team.TeamFixturesActivity
 import javax.inject.Inject

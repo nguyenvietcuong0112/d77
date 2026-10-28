@@ -6,8 +6,8 @@ import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.R
 import com.football.news.livescore.base.AbsBaseActivity
 import com.football.news.livescore.databinding.ActivityNativeFullBinding

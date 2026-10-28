@@ -71,7 +71,7 @@ public class SharePreferenceUtils {
 
 
     public static boolean isOrganic(Context context) {
-        if (com.cscmobi.libraryads.CSCFOConfigs.INSTANCE.isOrganic()) {
+        if (com.cscmobi.libraryads.commons.sharepreference.CSCSPFHolder.INSTANCE.get().is_organic()) {
             setOrganic(context, true);
             return true;
         }

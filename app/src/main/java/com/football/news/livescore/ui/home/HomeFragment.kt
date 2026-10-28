@@ -24,8 +24,8 @@ import com.football.news.livescore.utils.bindScrollableChild
 import dagger.hilt.android.AndroidEntryPoint
 import com.football.news.livescore.data.local.RequestLimitManager
 import com.football.news.livescore.data.remote.RemoteConfigManager
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.utils.SharePreferenceUtils
 import com.football.news.livescore.utils.NativeCallback
 import com.football.news.livescore.utils.Admob

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import androidx.core.content.ContextCompat
-import com.google.android.gms.ads.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
 import com.football.news.livescore.R
 import com.football.news.livescore.data.local.entity.CachedMatchEntity
 import com.football.news.livescore.databinding.ItemLeagueHeaderBinding
@@ -29,7 +29,7 @@ sealed class MatchListItem {
     ) : MatchListItem()
     data class NativeAd(
         val id: String,
-        var nativeAd: com.google.android.gms.ads.nativead.NativeAd? = null
+        var nativeAd: com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd? = null
     ) : MatchListItem()
 }
 
@@ -294,7 +294,7 @@ class MatchAdapter(
             }
         }
 
-        private fun renderNativeAd(nativeAd: com.google.android.gms.ads.nativead.NativeAd) {
+        private fun renderNativeAd(nativeAd: com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd) {
             // Restore height in case it was previously collapsed
             val layoutParams = binding.root.layoutParams
             layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT

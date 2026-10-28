@@ -10,8 +10,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.R
 import com.football.news.livescore.data.repository.LeaguesRepository
 import com.football.news.livescore.databinding.FragmentWc26Binding
@@ -806,7 +806,7 @@ class WC26Fragment : Fragment() {
             pending.adId,
             1,
             object : NativeCallback() {
-                override fun onNativeAdLoaded(nativeAd: com.google.android.gms.ads.nativead.NativeAd?) {
+                override fun onNativeAdLoaded(nativeAd: com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd?) {
                     super.onNativeAdLoaded(nativeAd)
                     if (!isAdded) return
 
@@ -850,7 +850,7 @@ class WC26Fragment : Fragment() {
                 adId,
                 1,
                 object : NativeCallback() {
-                    override fun onNativeAdLoaded(nativeAd: com.google.android.gms.ads.nativead.NativeAd?) {
+                    override fun onNativeAdLoaded(nativeAd: com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd?) {
                         super.onNativeAdLoaded(nativeAd)
                         if (!isAdded) return
 

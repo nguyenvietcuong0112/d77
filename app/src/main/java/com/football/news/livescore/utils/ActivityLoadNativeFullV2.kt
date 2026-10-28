@@ -58,7 +58,7 @@ class ActivityLoadNativeFullV2 : AbsBaseActivity() {
                 finish()
             }
 
-            override fun onNativeAdLoaded(nativeAd: com.google.android.gms.ads.nativead.NativeAd?) {
+            override fun onNativeAdLoaded(nativeAd: com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd?) {
                 super.onNativeAdLoaded(nativeAd)
                 com.football.news.livescore.utils.LivescoreTrackingSDKKotlin.AdTrackingHelper.logAdLoadSuccess(
                     liveScoreApiService, this@ActivityLoadNativeFullV2, "native", nonNullId, "NativeSplashFullV2"
@@ -75,15 +75,15 @@ class ActivityLoadNativeFullV2 : AbsBaseActivity() {
                     .inflate(
                         R.layout.native_full_language,
                         null
-                    ) as com.google.android.gms.ads.nativead.NativeAdView
+                    ) as com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
                 binding?.frAdsFull?.removeAllViews()
                 binding?.frAdsFull?.addView(adView)
                 Admob.getInstance().pushAdsToViewCustom(nativeAd, adView)
 
                 val closeButton = adView.findViewById<android.widget.ImageView>(R.id.close)
                 val mediaView =
-                    adView.findViewById<com.google.android.gms.ads.nativead.MediaView>(R.id.media_view)
-                        ?: adView.findViewById<com.google.android.gms.ads.nativead.MediaView>(R.id.ad_media)
+                    adView.findViewById<com.google.android.libraries.ads.mobile.sdk.nativead.MediaView>(R.id.media_view)
+                        ?: adView.findViewById<com.google.android.libraries.ads.mobile.sdk.nativead.MediaView>(R.id.ad_media)
                 closeButton.setOnClickListener(android.view.View.OnClickListener { v: android.view.View? -> mediaView?.performClick() })
                 closeButton.postDelayed({
                     closeButton.setOnClickListener(android.view.View.OnClickListener { v: android.view.View? ->

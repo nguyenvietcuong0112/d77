@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.R
 import com.football.news.livescore.base.BaseActivity
 import com.football.news.livescore.data.local.RequestLimitManager

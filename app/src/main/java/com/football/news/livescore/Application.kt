@@ -10,6 +10,7 @@ import com.facebook.FacebookSdk
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.cscmobi.libraryads.CSCApplication
+import com.cscmobi.libraryads.commons.sharepreference.CSCSPFHolder
 import com.cscmobi.libraryads.data.AdsLanguageConfig
 import com.cscmobi.libraryads.data.AdsOBConfig
 import com.cscmobi.libraryads.data.AdsSplashConfig
@@ -22,7 +23,6 @@ import com.cscmobi.libraryads.data.SplashConfig
 import com.cscmobi.libraryads.data.UiLanguageConfig
 import com.cscmobi.libraryads.data.UiOBConfig
 import com.cscmobi.libraryads.data.UiSplashConfig
-import com.cscmobi.libraryads.commons.sharepreference.CSCSPF
 import com.football.news.livescore.data.local.BillingManager
 import com.football.news.livescore.data.remote.DeviceRegistrationManager
 import com.football.news.livescore.data.remote.adjust.AppAdjustTokens
@@ -130,7 +130,7 @@ class Application : android.app.Application() {
 
     private fun initCSCAds() {
         try {
-            val cscLibrary = CSCApplication(this, RemoteConfigs, BuildConfig.DEBUG)
+            val cscLibrary = CSCApplication(this, RemoteConfigs, getString(R.string.app_id), BuildConfig.DEBUG)
             cscLibrary.initSdk(
                 adjustAppToken = AppAdjustTokens.ADJUST_APP_TOKEN,
                 gsmAppId = com.football.news.livescore.data.remote.gsm.GsmConfig.GSM_APP_ID,
@@ -139,7 +139,7 @@ class Application : android.app.Application() {
                         resLayout = R.layout.activity_splash,
                         showFOForever = false,
                         homeActivity = MainActivity::class.java,
-                        timeout = 35_000
+                        timeout = 45_000
                     ),
                     adsSplashConfig = AdsSplashConfig(
                         bannerId = getString(R.string.banner_splash),
@@ -158,7 +158,7 @@ class Application : android.app.Application() {
                         languageSetting = object : LanguageSetting {
                             override fun onDone(activity: Activity) {
                                 try {
-                                    val spf = CSCSPF(activity)
+                                    val spf = CSCSPFHolder.get()
                                     val code = spf.language_code_selected
                                     if (!code.isNullOrEmpty()) {
                                         SystemUtil.saveLocale(activity, code)
@@ -193,12 +193,11 @@ class Application : android.app.Application() {
                         resFragmentOB2 = R.layout.fragment_intro2,
                         resFragmentOB3 = R.layout.fragment_intro3,
                         resFragmentOB4 = R.layout.fragment_intro4,
-                        resFragmentOBAdFull = R.layout.native_full_language,
                         nextOBActivity = MainActivity::class.java,
                         activityCallback = object : OnActivityCallBack {
                             override fun onNextActivity(activity: Activity, inSession2: Boolean) {
                                 try {
-                                    val spf = CSCSPF(activity)
+                                    val spf = CSCSPFHolder.get()
                                     val code = spf.language_code_selected
                                     if (!code.isNullOrEmpty()) {
                                         SystemUtil.saveLocale(activity, code)
@@ -219,7 +218,7 @@ class Application : android.app.Application() {
                         nativeOBFull23Id = getString(R.string.native_onboarding_full_1),
                         layoutNativeOB1 = R.layout.layout_native_media,
                         layoutNativeOB4 = R.layout.layout_native_media,
-                        layoutNativeFullOB = R.layout.native_full_language,
+                        layoutNativeFullOB = R.layout.admob_layout_native_full,
                         isLoadNativeOBInLanguage = true
                     )
                 )

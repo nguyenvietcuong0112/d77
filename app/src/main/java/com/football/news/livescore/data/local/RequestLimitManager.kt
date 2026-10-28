@@ -126,6 +126,7 @@ class RequestLimitManager @Inject constructor(
 
     fun setPremium(isPremium: Boolean) {
         prefs.edit().putBoolean(KEY_IS_PREMIUM, isPremium).apply()
+        try { com.cscmobi.libraryads.commons.sharepreference.CSCSPFHolder.get().is_app_pro = isPremium } catch (_: Exception) {}
         _isPremiumState.value = isPremium
         // Instantly notify observers of quota changes when premium is acquired
         triggerLimitExceeded() 

@@ -11,9 +11,9 @@ import com.football.news.livescore.base.BaseActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.google.android.gms.ads.nativead.MediaView
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.MediaView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.R
 import com.football.news.livescore.data.local.RequestLimitManager
 import com.football.news.livescore.data.remote.RemoteConfigManager
@@ -29,6 +29,7 @@ import com.football.news.livescore.utils.AdsConfig
 import com.football.news.livescore.utils.LogEvent
 import com.football.news.livescore.utils.NativeCallback
 import com.football.news.livescore.utils.Admob
+import com.football.news.livescore.utils.setOnPaidEventListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

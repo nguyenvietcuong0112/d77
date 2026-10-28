@@ -163,21 +163,40 @@
 -dontwarn com.squareup.picasso.**
 
 # ==============================================================================
-# PANGLE SDK
-# ==============================================================================
+# Pangle (Bytedance) & Adapter
 -keep class com.bytedance.sdk.** { *; }
--dontwarn com.bytedance.sdk.**
 -keep interface com.bytedance.sdk.** { *; }
--keep class com.bytedance.openadsdk.** { *; }
--dontwarn com.bytedance.openadsdk.**
--keep interface com.bytedance.openadsdk.** { *; }
--keep class com.bytedance.pangle.** { *; }
--dontwarn com.bytedance.pangle.**
--keep class com.bytedance.msdk.** { *; }
--dontwarn com.bytedance.msdk.**
+-keep class com.bytedance.adsdk.** { *; }
+-keep class com.bytedance.mobsec.** { *; }
+-keep class com.bytedance.applog.** { *; }
+-keep class com.apm.insight.** { *; }
 -keep class com.bykv.vk.** { *; }
--dontwarn com.bykv.vk.**
+-keep interface com.bykv.vk.** { *; }
+-keep class com.com.bytedance.overseas.sdk.** { *; }
+-keep class com.iab.omid.library.bytedance2.** { *; }
+-keep class com.pgl.ssdk.** { *; }
+-keep class com.tiktok.** { *; }
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep class com.bykv.vk.openvk.** { *; }
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# Pangle JNI & Native Security (Crucial for Bidding Token Generation)
+-keep class ms.bd.o.Pgl.** { *; }
+-keep class ms.bd.c.** { *; }
+-keep class ms.bd.o.** { *; }
+-keep class com.pgl.sys.ces.** { *; }
+
+# Google AdMob Mediation Adapter for Pangle
 -keep class com.google.ads.mediation.pangle.** { *; }
+
+-dontwarn com.bytedance.**
+-dontwarn com.bykv.**
+-dontwarn com.pgl.**
+-dontwarn ms.bd.**
+-dontwarn com.iab.omid.**
+-dontwarn com.tiktok.**
 -dontwarn com.google.ads.mediation.pangle.**
 
 # ==============================================================================

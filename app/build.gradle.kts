@@ -21,8 +21,8 @@ android {
         applicationId = "com.football.news.livescore"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.0.3"
+        versionCode = 4
+        versionName = "0.0.4"
 
     }
 
@@ -61,8 +61,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin.compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
     }
     buildFeatures {
         viewBinding = true
@@ -132,6 +132,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
+    kapt("org.jetbrains.kotlin:kotlin-metadata-jvm:2.4.21")
 
     // Hilt
     implementation(libs.hilt.android)
@@ -148,14 +149,14 @@ dependencies {
     implementation(libs.lottie)
 
     // AdMob
-    implementation(libs.play.services.ads)
+//    implementation(libs.play.services.ads)
 
     //noinspection UseTomlInstead
     implementation("com.google.android.ump:user-messaging-platform:4.0.0")
     implementation(libs.billing.ktx)
 
     implementation(platform(libs.firebase.bom))
-    implementation(libs.gms.play.services.ads)
+//    implementation(libs.gms.play.services.ads)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.database)
@@ -179,7 +180,7 @@ dependencies {
 
     implementation("com.intuit.sdp:sdp-android:1.1.0")
     implementation("com.intuit.ssp:ssp-android:1.1.0")
-    implementation("com.cscapp:library-test:0.3.0")
+    implementation("com.cscapp:library-gma:0.0.9")
 
     testImplementation(libs.junit)
     testImplementation(libs.json)
@@ -187,6 +188,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
 }
 
+configurations.configureEach {
+    exclude(group = "com.google.android.gms", module = "play-services-ads")
+    exclude(group = "com.google.android.gms", module = "play-services-ads-lite")
+    exclude(group = "com.google.android.gms", module = "play-services-ads-base")
+    exclude(group = "com.google.android.gms", module = "play-services-ads-api")
+}
 tasks.matching { it.name.contains("AarMetadata") }.configureEach {
     enabled = false
 }

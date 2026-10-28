@@ -1,8 +1,8 @@
 package com.football.news.livescore.utils
 
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
 import com.football.news.livescore.R
 import com.football.news.livescore.data.local.RequestLimitManager
 import com.football.news.livescore.data.remote.RemoteConfigManager
@@ -27,7 +27,7 @@ object AdsConfig {
     var isInterAdLoading: Boolean = false
 
     var isPreloadingLanguageAd: Boolean = false
-    var onLanguageAdLoaded: ((com.google.android.gms.ads.nativead.NativeAd?) -> Unit)? = null
+    var onLanguageAdLoaded: ((NativeAd?) -> Unit)? = null
 
     fun showInterClickAd(activity: AppCompatActivity, onAdClosedAction: () -> Unit) {
         val limitManager = try {

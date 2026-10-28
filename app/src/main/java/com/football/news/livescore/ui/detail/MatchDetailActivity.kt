@@ -11,8 +11,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.LayoutInflater
 import com.football.news.livescore.data.remote.RemoteConfigManager
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.utils.NativeCallback
 import com.football.news.livescore.utils.Admob
 import com.football.news.livescore.base.BaseActivity
@@ -36,7 +36,7 @@ import com.football.news.livescore.ui.iap.IAPActivity
 import com.football.news.livescore.utils.AdsConfig
 import com.football.news.livescore.utils.SharePreferenceUtils
 import com.football.news.livescore.utils.LogEvent
-import com.google.android.gms.ads.LoadAdError
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
 import com.football.news.livescore.utils.InterCallback
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

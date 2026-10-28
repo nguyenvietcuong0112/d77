@@ -2,20 +2,57 @@ package com.football.news.livescore.utils
 
 import android.app.Activity
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdLoader
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.LoadAdError
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.nativead.MediaView
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.common.AdChoicesPlacement
+import com.google.android.libraries.ads.mobile.sdk.common.AdValue
+import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.MediaView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdEventCallback
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoader
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdLoaderCallback
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdRequest
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.R
 import com.cscmobi.libraryads.ads.inter_ads.CSCInter
 import com.cscmobi.libraryads.commons.adjust.trackingRevenueAd
+
+fun NativeAd.setOnPaidEventListener(listener: (AdValue) -> Unit) {
+    val existingCallback = this.adEventCallback
+    this.adEventCallback = object : NativeAdEventCallback {
+        override fun onAdPaid(value: AdValue) {
+            existingCallback?.onAdPaid(value)
+            listener(value)
+        }
+        override fun onAdClicked() {
+            existingCallback?.onAdClicked()
+        }
+        override fun onAdImpression() {
+            existingCallback?.onAdImpression()
+        }
+        override fun onAdDismissedFullScreenContent() {
+            existingCallback?.onAdDismissedFullScreenContent()
+        }
+        override fun onAdShowedFullScreenContent() {
+            existingCallback?.onAdShowedFullScreenContent()
+        }
+        override fun onAdFailedToShowFullScreenContent(fullScreenContentError: FullScreenContentError) {
+            existingCallback?.onAdFailedToShowFullScreenContent(fullScreenContentError)
+        }
+        override fun onAdSwipeGestureClicked() {
+            existingCallback?.onAdSwipeGestureClicked()
+        }
+        override fun onCustomMuteThisAdReported() {
+            existingCallback?.onCustomMuteThisAdReported()
+        }
+    }
+}
 
 abstract class NativeCallback {
     open fun onNativeAdLoaded(nativeAd: NativeAd?) {}
@@ -31,31 +68,46 @@ abstract class InterCallback {
 
 object CscAdHelper {
 
+    private val mainHandler = Handler(Looper.getMainLooper())
+
+    private fun runOnMainThread(action: () -> Unit) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            action()
+        } else {
+            mainHandler.post(action)
+        }
+    }
+
     fun loadNativeAd(context: Context, adId: String?, callback: NativeCallback) {
         if (adId.isNullOrBlank()) {
-            callback.onAdFailedToLoad()
+            runOnMainThread { callback.onAdFailedToLoad() }
             return
         }
         try {
-            val adLoader = AdLoader.Builder(context, adId)
-                .forNativeAd { nativeAd ->
+            val request = NativeAdRequest.Builder(adId, listOf(NativeAd.NativeAdType.NATIVE))
+                .setAdChoicesPlacement(AdChoicesPlacement.TOP_RIGHT)
+                .build()
+            NativeAdLoader.load(request, object : NativeAdLoaderCallback {
+                override fun onNativeAdLoaded(nativeAd: NativeAd) {
                     try {
                         trackingRevenueAd(nativeAd)
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-                    callback.onNativeAdLoaded(nativeAd)
+                    runOnMainThread {
+                        callback.onNativeAdLoaded(nativeAd)
+                    }
                 }
-                .withAdListener(object : AdListener() {
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
+
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    runOnMainThread {
                         callback.onAdFailedToLoad()
                     }
-                })
-                .build()
-            adLoader.loadAd(AdRequest.Builder().build())
+                }
+            })
         } catch (e: Exception) {
             e.printStackTrace()
-            callback.onAdFailedToLoad()
+            runOnMainThread { callback.onAdFailedToLoad() }
         }
     }
 
@@ -107,16 +159,18 @@ object CscAdHelper {
 
         val mediaView = adView.findViewById<MediaView>(R.id.media_view)
             ?: adView.findViewById<MediaView>(R.id.ad_media)
-        if (mediaView != null) {
-            adView.mediaView = mediaView
-        }
 
-        adView.setNativeAd(nativeAd)
-
-        // Delegate to library binder to ensure all library-specific bindings are executed
+        // Delegate to library binder to ensure all library-specific bindings and registerNativeAd are executed
         try {
             com.cscmobi.libraryads.ads.native_ads.renderer.DefaultNativeViewBinder().bind(adView, nativeAd)
-        } catch (_: Exception) {}
+        } catch (_: Exception) {
+            try {
+                if (mediaView != null) {
+                    nativeAd.mediaContent?.let { mediaView.mediaContent = it }
+                }
+                adView.registerNativeAd(nativeAd, mediaView)
+            } catch (_: Exception) {}
+        }
 
         // Ensure content is visible and shimmer is hidden
         adView.findViewById<View>(R.id.ad_content_view)?.visibility = View.VISIBLE

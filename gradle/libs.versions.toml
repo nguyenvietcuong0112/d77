@@ -92,8 +92,8 @@ shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.22" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version = "1.9.22" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.4.21" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version = "2.4.21" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 

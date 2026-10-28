@@ -21,8 +21,8 @@ import javax.inject.Inject
 
 import android.view.LayoutInflater
 import android.view.View
-import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.gms.ads.nativead.NativeAdView
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAd
+import com.google.android.libraries.ads.mobile.sdk.nativead.NativeAdView
 import com.football.news.livescore.data.local.RequestLimitManager
 import com.football.news.livescore.data.remote.RemoteConfigManager
 import com.football.news.livescore.utils.NativeCallback
